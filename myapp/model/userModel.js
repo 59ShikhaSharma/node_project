@@ -1,24 +1,3 @@
-// const jwtHelper = require('./jwtHelper'); // Adjust path as per your project structure
-
-// async function verifyToken(req, res, next) {
-//     const bearerHeader = req.headers['authorization'];
-//     if (typeof bearerHeader !== 'undefined') {
-//         try {
-//             const bearer = bearerHeader.split(" ");
-//             const token = bearer[1];
-//             const authData = await jwtHelper.verifyToken(token);
-//             req.authData = authData; // Attach authData to request object for further middleware or route handlers
-//             next();
-//         } catch (error) {
-//             res.status(401).json({ error: 'Unauthorized' });
-//         }
-//     } else {
-//         res.status(403).json({ error: 'Forbidden. Token is missing' });
-//     }
-// }
-
-// module.exports = verifyToken;
-
 const { pool } = require('../databasepg');
 
 async function createUserTable() {

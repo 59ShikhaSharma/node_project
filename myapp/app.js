@@ -1,4 +1,3 @@
-var createError = require('http-errors');
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -10,9 +9,7 @@ dotenv.config({path:"./config.env"})
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var db = require('./databasepg');
-
 db;
-
 
 
 // view engine setup
@@ -30,9 +27,9 @@ app.use('/user', usersRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -42,7 +39,15 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
+ var {logErr} = require('./winston');
+ logErr(err)
+  res.status(500).json({
+    status:"fail",
+    message:err.message
+
+
+  })
 });
 
 module.exports = app;
