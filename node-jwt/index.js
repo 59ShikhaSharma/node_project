@@ -13,6 +13,8 @@ app.get("/", (req, res) => {
 app.post('/login', (req, res) => {
     const user = {
         id: 1,
+
+        
         username: "Shikha",
         email: "abc@gmail.com"
     }

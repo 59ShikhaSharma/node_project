@@ -18,7 +18,7 @@ module.exports = class Email {
         });
     }
 
-    async send(subject, text) {jkkj
+    async send(subject, text) {
         const html = text
         const mailOptions = {
             from: this.from,

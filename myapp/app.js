@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var dotenv=require('dotenv')
 dotenv.config({path:"./config.env"})
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var db = require('./databasepg');
@@ -45,7 +44,6 @@ app.use(function(err, req, res, next) {
   res.status(500).json({
     status:"fail",
     message:err.message
-
 
   })
 });
